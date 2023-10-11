@@ -10,9 +10,6 @@ size_t partition(int* arr, size_t size) {
 		while (arr[j] > pivot)
 			j--;
 
-		if (arr[i] == arr[j])
-			i++;
-
 		if (i < j)
 			std::swap(arr[i], arr[j]);
 		else
