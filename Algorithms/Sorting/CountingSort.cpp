@@ -1,5 +1,6 @@
 void counting_sort(int* arr, size_t arrLength) {
-    int arr_copy[arrLength];
+    const int MAX_SIZE = 1e5;
+    int arr_copy[MAX_SIZE];
 
     int max = arr[0];
     for (int i = 0; i < arrLength; ++i) {
@@ -9,7 +10,7 @@ void counting_sort(int* arr, size_t arrLength) {
         arr_copy[i] = arr[i];
     }
 
-    int count[max + 1];
+    int count[MAX_SIZE];
     for (int i = 0; i < max + 1; ++i) {
         count[i] = 0;
     }
