@@ -33,5 +33,6 @@ int main()
         std::cout << result[i] << " ";
     }
 
+    delete[] result;
     return 0;
 }
