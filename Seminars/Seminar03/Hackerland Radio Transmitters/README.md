@@ -39,9 +39,10 @@ Print a single integer denoting the minimum number of transmitters needed to cov
 Sample Input 0
 
 STDIN       Function
------       --------
+      
 5 1         x[] size n = 5, k = 1
 1 2 3 4 5   x = [1, 2, 3, 4, 5]  
+
 Sample Output 0
 
 2
