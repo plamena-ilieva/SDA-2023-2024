@@ -1,4 +1,4 @@
-[Maximum Depth of Binary Treehttps://leetcode.com/problems/maximum-depth-of-binary-tree)
+[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree)
 
 Given the root of a binary tree, return its maximum depth.
 
