@@ -1,4 +1,4 @@
-truct node
+struct node
 {
     int key;
     unsigned char height;
