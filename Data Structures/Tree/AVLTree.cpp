@@ -65,7 +65,7 @@ node* balance(node* p) // balancing the p node
 node* insert(node* p, int k) // insert k key in a tree with p root
 {
     if( !p ) return new node(k);
-    if( kkey )
+    if( k < p->key )
         p->left = insert(p->left,k);
     else
         p->right = insert(p->right,k);
@@ -98,8 +98,8 @@ node* remove(node* p, int k) // deleting k key from p tree
         node* r = p->right;
         delete p;
         if( !r ) return q;
-        node* min = findmin®;
-        min->right = removemin®;
+        node* min = findmin(r);
+        min->right = removemin(r);
         min->left = q;
         return balance(min);
     }
