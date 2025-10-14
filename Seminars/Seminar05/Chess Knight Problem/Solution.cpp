@@ -34,17 +34,17 @@ struct Square
     Position pos;
     int steps;
 
-    Square(Position pos, int steps)
+    Square(const Position& pos, int steps)
         : pos(pos), steps(steps) {}
 };
 
-bool isInBounds(Position pos, int n)
+bool isInBounds(const Position& pos, int n)
 {
     return pos.x >= 1 && pos.x <= n &&
         pos.y >= 1 && pos.y <= n;
 }
 
-int stepsKnightProblem(Position knight, Position end, int n)
+int stepsKnightProblem(const Position& knight, const Position& end, int n)
 {
     // Валидни движения на коня
     int statesCount = 8;
@@ -78,20 +78,13 @@ int stepsKnightProblem(Position knight, Position end, int n)
     while (!q.empty())
     {
         // Текущото поле е на върха на опашката.
-        // Това е полето, до която сме стигнали с най-малък брой ходове (стъпки),
+        // Това е полето, до коeто сме стигнали с най-малък брой ходове (стъпки),
         // защото полетата се добавят в опашката по ред на достигане.
         Square current = q.front();
 
         // Идея: Ще обходим всички полета, до които можем да достигнем от текущото.
         // С това ще изчерпаме възможностите за това поле, затова го махаме от опашката.
         q.pop();
-
-        // Ако позицията на текущото поле отговаря на позицията, която искаме да достигнем,
-        // то връщаме броя на стъпките, с които е било достигнато.
-        if (current.pos == end)
-        {
-            return current.steps;
-        }
 
         // Финалната позиция не е била текущата.
         // Добавяме в опашката всички позиции, които могат да бъдат достигнати
@@ -111,6 +104,14 @@ int stepsKnightProblem(Position knight, Position end, int n)
             if (isInBounds(pos, n) && !visited[pos.x][pos.y])
             {
                 visited[pos.x][pos.y] = true;
+
+                // Ако позицията на текущото поле отговаря на позицията, която искаме да достигнем,
+                // то връщаме броя на стъпките, с които е било достигнато.
+                if (pos == end)
+                {
+                    return current.steps + 1;
+                }
+                
                 q.push(Square(pos, current.steps + 1));
             }
         }
